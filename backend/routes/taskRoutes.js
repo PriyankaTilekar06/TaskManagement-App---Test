@@ -1,6 +1,7 @@
 const express = require("express");
 const cors = require("cors");
 const router = express();
+const jwt = require("jsonwebtoken");
 
 router.use(cors());
 router.use(express.json());
@@ -63,9 +64,7 @@ router.get("/api/tasks", (req, res) => {
   }
 });
 
-//
 
-const jwt = require("jsonwebtoken");
 
 const verifyToken = (req, res, next) => {
   const token = req.headers["authorization"];

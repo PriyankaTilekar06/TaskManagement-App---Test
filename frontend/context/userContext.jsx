@@ -17,7 +17,7 @@ export function UserContextProvider({ children }) {
     }
 
     try {
-      const response = await axios.get("http://localhost:8000/api/profile", {
+      const response = await axios.get("https://taskmanagement-app-test-backend-dcq9.onrender.com/api/profile", {
         method: "GET", //
         headers: {
           Authorization: `Bearer ${token}`,
@@ -41,7 +41,7 @@ export function UserContextProvider({ children }) {
 
     try {
       const response = await axios.put(
-        `http://localhost:8000/task/${taskId}`,
+        `https://taskmanagement-app-test-backend-dcq9.onrender.com/task/${taskId}`,
         updatedData,
         {
           headers: {

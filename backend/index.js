@@ -4,10 +4,6 @@ const cors = require("cors");
 const { mongoose } = require("mongoose");
 const cookieParser = require("cookie-parser");
 const app = express();
-const allowedOrigins = [
-  "http://localhost:5173",
-  "https://taskmanagement-app-test-frontend.onrender.com",
-];
 
 dotenv.config();
 
@@ -15,18 +11,16 @@ mongoose
   .connect(process.env.MONGO_URL)
   .then(() => console.log("Database Connected"))
   .catch((err) => console.log("Database not connected", err));
-app.use(
-  cors({
-    origin: function (origin, callback) {
-      if (allowedOrigins.indexOf(origin) !== -1 || !origin) {
-        callback(null, true);
-      } else {
-        callback(new Error("Not allowed by CORS"));
-      }
-    },
-    credentials: true 
-  })
-);
+const corsOptions = {
+  origin: [
+    'http://localhost:5173', // Local dev server
+    'https://taskmanagement-app-test-frontend.onrender.com', // Frontend on Render
+  ],
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  credentials: true, // Allow credentials (cookies) to be sent
+};
+
+app.use(cors(corsOptions));
 app.use(express.json());
 app.use(cookieParser());
 app.use(express.urlencoded({ extended: false }));

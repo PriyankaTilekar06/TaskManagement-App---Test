@@ -56,7 +56,7 @@ export default function TaskPopup({ onSave, onClose, taskToEdit }) {
 
   useEffect(() => {
     axios
-      .get("http://localhost:8000/api/users", { withCredentials: true })
+      .get("https://taskmanagement-app-test-backend-dcq9.onrender.com/api/users", { withCredentials: true })
       .then((response) => {
         if (Array.isArray(response.data)) {
           setAssignedEmails(response.data.map((user) => user.email));

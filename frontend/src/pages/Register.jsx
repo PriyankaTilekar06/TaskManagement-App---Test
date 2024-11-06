@@ -25,7 +25,7 @@ export default function Register() {
     const { name, email, confirmPassword, password } = data;
 
     try {
-      const response = await axios.post("/register", {
+      const response = await axios.post("https://taskmanagement-app-test-backend-dcq9.onrender.com/register", {
         name,
         email,
         confirmPassword,

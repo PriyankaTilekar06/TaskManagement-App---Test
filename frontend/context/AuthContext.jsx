@@ -23,7 +23,7 @@ const AuthProvider = ({ children }) => {
 
   const login = async (email, password) => {
     try {
-      const response = await axios.post("http://localhost:8000/login", {
+      const response = await axios.post("https://taskmanagement-app-test-backend-dcq9.onrender.com/login", {
         email,
         password,
       });
@@ -60,7 +60,7 @@ const AuthProvider = ({ children }) => {
       return;
     }
     try {
-      const response = await axios.get("http://localhost:8000/profile", {
+      const response = await axios.get("https://taskmanagement-app-test-backend-dcq9.onrender.com/profile", {
         headers: { Authorization: `Bearer ${token}` },
       });
       setUser(response.data.user);

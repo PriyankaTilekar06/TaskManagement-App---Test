@@ -14,7 +14,7 @@ import { AuthProvider, useAuth } from "../context/AuthContext";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { TaskDetail } from "./pages/taskDetails/TaskDetails";
 
-axios.defaults.baseURL = "http://localhost:8000";
+axios.defaults.baseURL = "https://taskmanagement-app-test-backend-dcq9.onrender.com";
 axios.defaults.withCredentials = true;
 
 function App() {

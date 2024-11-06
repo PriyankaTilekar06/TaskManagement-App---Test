@@ -49,7 +49,7 @@ export default function Setting() {
         "Content-Type": "application/json",
       });
 
-      const response = await fetch("http://localhost:8000/updateUser", {
+      const response = await fetch("https://taskmanagement-app-test-backend-dcq9.onrender.com/updateUser", {
         method: "PUT",
         headers: {
           Authorization: `Bearer ${token}`,

@@ -26,7 +26,7 @@ const AuthProvider = ({ children }) => {
       const response = await axios.post("https://taskmanagement-app-test-backend-dcq9.onrender.com/login", {
         email,
         password,
-      });
+      },{ withCredentials: true });
       const { token, user } = response.data;
 
       localStorage.setItem("token", token);

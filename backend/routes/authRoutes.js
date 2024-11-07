@@ -12,7 +12,7 @@ const userRoutes = require("../routes/userRoutes");
 const authenticateUser = require("../middleware/authMiddleware");
 
 const corsOptions = {
-  origin: "http://localhost:5173",
+  origin: ["http://localhost:5173", "https://taskmanagement-app-test-frontend.onrender.com"],
   credentials: true,
 };
 

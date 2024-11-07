@@ -38,9 +38,9 @@ app.use("/", require("./routes/userRoutes"));
 app.use("/", require("./routes/taskRoutes"));
 
 if (process.env.NODE_ENV === "production") {
-  app.use(express.static(path.join(__dirname, "../frontend", "build"))); 
+  app.use(express.static(path.join(__dirname, "dist"))); 
   app.get("*", (req, res) => {
-    res.sendFile(path.join(__dirname, "../frontend", "build", "index.html"));
+    res.sendFile(path.join(__dirname, "dist", "index.html"));
   });
 }
 

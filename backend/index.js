@@ -37,6 +37,13 @@ app.use("/", require("./routes/authRoutes"));
 app.use("/", require("./routes/userRoutes"));
 app.use("/", require("./routes/taskRoutes"));
 
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static(path.join(__dirname, "../frontend", "build"))); 
+  app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "../frontend", "build", "index.html"));
+  });
+}
+
 const port = process.env.PORT || 8000;
 app.listen(port, () => {
   console.log(`Server running at port 8000`);

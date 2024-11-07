@@ -32,11 +32,8 @@ export default function Register() {
         password,
       });
 
-      console.log("Registration Response:", response.data);
-
       if (response.data.error) {
         toast.error(response.data.error);
-        console.error("Server Error:", response.data.error);
       } else {
         const { token, user } = response.data;
 
@@ -51,13 +48,9 @@ export default function Register() {
         }
       }
     } catch (error) {
-      console.error(
-        "Registration error:",
-        error.response?.data || error.message
-      );
-      toast.error(
-        error.response?.data?.error || "Registration failed. Please try again."
-      );
+      const errorMsg = error.response?.data?.error || "Registration failed. Please try again.";
+      console.error("Registration error:", errorMsg);
+      toast.error(errorMsg);
     }
   };
 
@@ -100,7 +93,7 @@ export default function Register() {
           <div className={styles.inputContainer}>
             <RiLockPasswordLine className={styles.icon} />
             <input
-              type="text"
+              type="password"
               placeholder="&nbsp;&nbsp;&nbsp;&nbsp; Confirm Password"
               className={styles.inputField}
               value={data.confirmPassword}
@@ -112,7 +105,7 @@ export default function Register() {
           <div className={styles.inputContainer}>
             <RiLockPasswordLine className={styles.icon} />
             <input
-              type="text"
+              type="password"
               placeholder="&nbsp;&nbsp;&nbsp;&nbsp; Password"
               className={styles.inputField}
               value={data.password}
